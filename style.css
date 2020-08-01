@@ -97,7 +97,7 @@ body {
 }
 
 .jumbotron {
-  background: url(https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1526&q=80) center center;
+  background: url(https://toledolibrary.s3.amazonaws.com/uploads/images/blog/_large/We-Shall-Overcome-featured-image-resized.jpg) center center;
   background-size: cover;
   height: 600px; 
 }
