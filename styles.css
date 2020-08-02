@@ -108,9 +108,14 @@ ul {
   height: 600px; 
 }
 
-.jumbotron .container {
+.jumbotron {
   position: relative;
   top: 220px;
+}
+
+.container{
+  position: relative;
+  /*top: 220px;*/
 }
 
 .jumbotron h2 {
