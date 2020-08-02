@@ -16,13 +16,12 @@ p_tweets = api.search("I beat cancer")
 accounts = {}
 
 
-for tweet in p_tweets:
-    userInstance = UserTree(tweet.author.screen_name, tweet.author.name,
-                            tweet.author.profile_image_url, tweet.text, tweet.author.created_at)
-    accounts[tweet.author.name] = userInstance
-    print(tweet.text)
+#for tweet in p_tweets:
+    #userInstance = UserTree(tweet.author.screen_name, tweet.author.name,
+                            #tweet.author.profile_image_url, tweet.text, tweet.author.created_at)
+    #accounts[tweet.author.name] = userInstance
+    #print(tweet.text)
 
-c = p_tweets[0].text
 
 #val = accounts['PJ']
 #print(val.tweet_text)
@@ -32,16 +31,35 @@ def hello_world():
    return render_template('index.html')
 
 @app.route('/tree')
-def tree_page(value):
-    val = "Charles"
-    return '{}'.format(value)
+def tree_page():
+    return render_template('tree.html')
 
-@app.route('/test')
-def test():
-    for val in p_tweets:
-        g = tree_page(value=val)
-        return g
-    return
+for tweet in tweepy.Cursor(api.search,q = "I am cancer free", result_type = "recent", include_entities = False, include_rts = False, tweet_node = "extended").items(25):
+    #id_tweet = tweet._json['id']
+    #username_tweet = tweet._json['user']['screen_name']
+    #link_tweet = "https://twitter.com/" + str(username_tweet) + "/status/" + str(id_tweet)
+    #status = "Congrats, we are so happy to hear that "
+    #congrats = status + link_tweet
+    #api.update_status(congrats)
+
+    if 'RT' not in tweet.text:
+        username = tweet.author.screen_name
+        text = tweet.text
+
+        print([username, text])
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
