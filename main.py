@@ -34,19 +34,22 @@ def hello_world():
 def tree_page():
     return render_template('tree.html')
 
-for tweet in tweepy.Cursor(api.search,q = "I am cancer free", result_type = "recent", include_entities = False, include_rts = False, tweet_node = "extended").items(25):
-    #id_tweet = tweet._json['id']
-    #username_tweet = tweet._json['user']['screen_name']
-    #link_tweet = "https://twitter.com/" + str(username_tweet) + "/status/" + str(id_tweet)
-    #status = "Congrats, we are so happy to hear that "
-    #congrats = status + link_tweet
-    #api.update_status(congrats)
-
+q = ["I am cancer free", "beat it"]
+for tweet in tweepy.Cursor(api.search, q , result_type = "recent", include_entities = False, include_rts = False, tweet_node = "extended").items(25):
+    id_tweet = tweet._json['id']
+    username_tweet = tweet._json['user']['screen_name']
+    link_tweet = "https://twitter.com/" + str(username_tweet) + "/status/" + str(id_tweet)
+    status = "Congratulations! We are so happy to hear that, come to our website to meet your own virtual tree "
+    congrats = status + link_tweet
+    user_id = tweet._json['user']['id']
+    #text = tweet.text
+    #username = tweet.author.screen_name
+    
     if 'RT' not in tweet.text:
-        username = tweet.author.screen_name
-        text = tweet.text
+        api.update_status(congrats)
+        api.send_direct_message(user_id, text = "We are so happy and proud that you win this battle with cancer. For that, we want to honor you with a virtual tree on your name, you can visit it on our website. You deserve it. "+ link_tweet)
 
-        print([username, text])
+        #print([username, text])
 
 
 
