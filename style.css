@@ -106,10 +106,17 @@ body {
   margin: 50px 80px 50px 0;
 }
 
-.jumbotron {
+/*.jumbotron {
   background: url(https://toledolibrary.s3.amazonaws.com/uploads/images/blog/_large/We-Shall-Overcome-featured-image-resized.jpg) center center;
   background-size: cover;
-  height: 600px; 
+  height: 600px; */
+}
+
+.jumbotron {
+  background: black;
+  background: -webkit-linear-gradient(rgba(148, 0, 211, 0.2), rgba(0, 0, 0, 1)), url(https://toledolibrary.s3.amazonaws.com/uploads/images/blog/_large/We-Shall-Overcome-featured-image-resized.jpg);
+  background-size: cover;
+  height: 600px;
 }
 
 .jumbotron .container {
