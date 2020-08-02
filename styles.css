@@ -85,6 +85,10 @@ ul {
   list-style-type: none;
 }
 
+li {
+  padding: 10px
+}
+
 .nav ul li {
   color: #fff;
   display: inline-block; 
